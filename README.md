@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ### Entity-Aware BERTScore
 To calculate entity-aware BERTScore between candidates and right/contrastive references, run the following script 
-(taking the candidates of Pt-Nmt as an example):
+(taking the candidates of Pt-Nmt as an example, model files will be downloaded automatically during initial running):
 ```bash
 python ent_bertscore/ent_score.py \
     --candidate data/ptnmt/cr-test.hyp \
