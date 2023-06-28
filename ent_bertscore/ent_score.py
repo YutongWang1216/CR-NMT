@@ -55,7 +55,7 @@ def calc_score():
     with open(cref, 'r', encoding="utf-8") as f:
         contrastive_refs = [line.strip() for line in f]
 
-    print('Current weight of commonsense entities: %f' % (weight))
+    print('Current weight of commonsense entities: %.2f' % (weight))
 
     scores = cs_score(cands, right_refs, contrastive_refs, lang='en', verbose=True, 
                     ent_weight=weight, tokenizer=tokenizer, idf=False, device="cpu" if is_cpu else None)
