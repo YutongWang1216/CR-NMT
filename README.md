@@ -4,7 +4,7 @@ Implementation of our paper published in ACL 2023
 
 
 <div align="center">
-    <img src="IMG_00001.png">
+    <img src="image/Poster_ACL23_Revisiting Commonsense Reasoning.png" width="80%" title="Poster of the article"></img>
 </div>
 
 
