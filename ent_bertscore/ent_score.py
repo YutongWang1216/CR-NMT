@@ -80,10 +80,10 @@ def write_score(right_score, contrastive_score):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Calculate entity-aware BERTScore.')
-    parser.add_argument('-c', '--candidate', type=str, required=True, help='Path to candidate')
-    parser.add_argument('-rr', '--r_reference', type=str, required=True, help='Path to right reference')
-    parser.add_argument('-cr', '--c_reference', type=str, required=True, help='Path to contrastive reference')
-    parser.add_argument('-o', '--outdir', type=str, default='.', help='Path to output directory')
+    parser.add_argument('-c', '--candidate', type=str, required=True, help='Candidate file')
+    parser.add_argument('-rr', '--r_reference', type=str, required=True, help='Right reference file')
+    parser.add_argument('-cr', '--c_reference', type=str, required=True, help='Contrastive reference file')
+    parser.add_argument('-o', '--outdir', type=str, default='.', help='Output directory')
     parser.add_argument('-w', '--weight', type=float, default=1.4, help='Weight of commonsense entities')
     parser.add_argument('--cpu', action="store_true", help='Run on cpu')
 

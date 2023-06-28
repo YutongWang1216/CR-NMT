@@ -36,7 +36,9 @@ pip install -r requirements.txt
 
 
 ## Examples
-To calculate entity-aware BERTScore between candidates and right/contrastive references, run this script 
+
+### Entity-Aware BERTScore
+To calculate entity-aware BERTScore between candidates and right/contrastive references, run the following script 
 (taking the candidates of Pt-Nmt as an example):
 ```bash
 python ent_bertscore/ent_score.py \
@@ -46,21 +48,56 @@ python ent_bertscore/ent_score.py \
     --weight 1.4 \
     --outdir example/
 ```
-More information about these parameters can be found by running `python ent_bertscore/ent_score.py --help`.
+More information about these parameters can be acquired by running `python ent_bertscore/ent_score.py --help`.
 
 After running, two score files `true.score.bert_1.4` and `wrong.score.bert_1.4` will be found 
 at the output directory `example/`, consisting of right side and contrastive side scores, respectively.
 
-## 
+
+### Commonsense Reasoning Accuracy
+Given the right and contrastive side scores, to calculate commonsense reasoning accuracy, run the following script
+(results of the previous step are used here):
 ```bash
-
+python CR_accuracy/calculate_accuracy.py \
+    --r_score example/true.score.bert_1.4 \
+    --c_score example/wrong.score.bert_1.4
 ```
+More information about these parameters can be acquired by running `CR_accuracy/calculate_accuracy.py --help`.
 
-# Menu
 
-|  Contents   | Directory  |
-|  ----  | ----  |
-| Data  | ./data/ |
-| Chi-square test, Kendall's tau calculation and ANOVA scripts  | ./evaluation/ |
-| Entity-aware BERTScore  | ./ent_bertscore/ |
-| CR accuracy calculation script  | ./CR_accuracy/ |
+### Meta-Evaluation of Commonsense Reasoning Metrics
+To conduct a meta-evaluation on the commonsense reasoning metrics, run the following scripts to examine the correlation 
+between metric scores and human annotations (results of the first step are used here, but the scripts work 
+not only for BERTScore, but also for other instance-level scores, such as Prob, BLEU and BLEURT):
+```bash
+# chi-square test
+python meta-evaluation/evaluate.py \
+    --r_score example/true.score.bert_1.4 \
+    --c_score example/wrong.score.bert_1.4 \
+    --human data/ptnmt/human.label \
+    --method chi
+    
+# Kendall rank correlation coefficient
+python meta-evaluation/evaluate.py \
+    --r_score example/true.score.bert_1.4 \
+    --c_score example/wrong.score.bert_1.4 \
+    --human data/ptnmt/human.label \
+    --method kendall
+    
+# Analysis of variance
+python meta-evaluation/evaluate.py \
+    --r_score example/true.score.bert_1.4 \
+    --c_score example/wrong.score.bert_1.4 \
+    --human data/ptnmt/human.label \
+    --method anova
+```
+More information about these parameters can be acquired by running `meta-evaluation/evaluate.py --help`.
+
+
+## Menu
+| Contents                                                     | Directory  |
+|--------------------------------------------------------------| ----  |
+| Experimental Data                                            | ./data/ |
+| Chi-square test, Kendall's tau calculation and ANOVA scripts | ./evaluation/ |
+| Entity-aware BERTScore                                       | ./ent_bertscore/ |
+| CR accuracy calculation script                               | ./CR_accuracy/ |

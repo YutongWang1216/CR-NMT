@@ -7,7 +7,7 @@ import argparse
 
 
 def calc_score(right_score, contranstive_score, human_labels):
-    if args.method == 'chi':  # 卡方检验
+    if method == 'chi':  # 卡方检验
         metric_labels = [1 if i > j else 0 for (i, j) in zip(right_score, contranstive_score)]
         table = [[0, 0], [0, 0]]
         for i, j in zip(metric_labels, human_labels):
@@ -17,7 +17,7 @@ def calc_score(right_score, contranstive_score, human_labels):
         print('%.1f\t%e' % (kt[0], kt[1]))
     else:
         metric_score = [i - j for (i, j) in zip(right_score, contranstive_score)]
-        if args.method == 'kendall':  # Kendall 秩相关系数
+        if method == 'kendall':  # Kendall 秩相关系数
             f, p = kendalltau(metric_score, human_labels)
             print('%.3f\t%e' % (f, p))
         else:  # ANOVA 方差分析
@@ -28,9 +28,9 @@ def calc_score(right_score, contranstive_score, human_labels):
 
 def evaluate():
 
-    right_file = open(args.rscore, 'r').readlines()
-    contrastive_file = open(args.cscore, 'r').readlines()
-    human_file = open(args.human, 'r').readlines()
+    right_file = open(rscore, 'r').readlines()
+    contrastive_file = open(cscore, 'r').readlines()
+    human_file = open(human, 'r').readlines()
     
     right_score = np.array([float(i.replace("\n", "")) for i in right_file if i != "\n"])
     contranstive_score = np.array([float(i.replace("\n", "")) for i in contrastive_file if i != "\n"])
@@ -49,11 +49,15 @@ def evaluate():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Meta-evaluate the metrics.')
-    parser.add_argument('rscore', type=str, help='Path to right side scores')
-    parser.add_argument('cscore', type=str, help='Path to contrastive side scores')
-    parser.add_argument('human', type=str, help='Path to human labels')
-    parser.add_argument('method', type=str, choices=['chi', 'kendall', 'anova'], help='Select an evaluation method')
+    parser.add_argument('-r', '--r_score', type=str, required=True, help='Right side score file')
+    parser.add_argument('-c', '--c_score', type=str, required=True, help='Contrastive side score file')
+    parser.add_argument('-hm', '--human', type=str, required=True, help='Human label file')
+    parser.add_argument('-m', '--method', type=str, required=True, choices=['chi', 'kendall', 'anova'], help='Evaluation method')
 
     args = parser.parse_args()
+    rscore = args.r_score
+    cscore = args.c_score
+    human = args.human
+    method = args.method
 
     evaluate()
