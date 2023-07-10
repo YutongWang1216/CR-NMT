@@ -95,6 +95,28 @@ python meta-evaluation/evaluate.py \
 ```
 More information about these parameters can be acquired by running `meta-evaluation/evaluate.py --help`.
 
+## Citation
+If you find this repo useful, please cite our paper:
+```
+@inproceedings{liu-etal-2023-revisiting-commonsense,
+    title = "Revisiting Commonsense Reasoning in Machine Translation: Training, Evaluation and Challenge",
+    author = "Liu, Xuebo  and
+      Wang, Yutong  and
+      Wong, Derek F.  and
+      Zhan, Runzhe  and
+      Yu, Liangxuan  and
+      Zhang, Min",
+    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.acl-long.866",
+    pages = "15536--15550",
+    abstract = "The ability of commonsense reasoning (CR) decides whether a neural machine translation (NMT) model can move beyond pattern recognition. Despite the rapid advancement of NMT and the use of pretraining to enhance NMT models, research on CR in NMT is still in its infancy, leaving much to be explored in terms of effectively training NMT models with high CR abilities and devising accurate automatic evaluation metrics. This paper presents a comprehensive study aimed at expanding the understanding of CR in NMT.For the training, we confirm the effectiveness of incorporating pretrained knowledge into NMT models and subsequently utilizing these models as robust testbeds for investigating CR in NMT. For the evaluation, we propose a novel entity-aware evaluation method that takes into account both the NMT candidate and important entities in the candidate, which is more aligned with human judgement. Based on the strong testbed and evaluation methods, we identify challenges in training NMT models with high CR abilities and suggest directions for further unlabeled data utilization and model design. We hope that our methods and findings will contribute to advancing the research of CR in NMT. Source data, code and scripts are freely available at https://github.com/YutongWang1216/CR-NMT.",
+}
+
+```
 
 ## Menu
 | Contents                                                     | Directory  |
