@@ -64,7 +64,7 @@ python CR_accuracy/calculate_accuracy.py \
     --r_score example/true.score.bert_1.4 \
     --c_score example/wrong.score.bert_1.4
 ```
-More information about these parameters can be acquired by running `CR_accuracy/calculate_accuracy.py --help`.
+More information about these parameters can be acquired by running `python CR_accuracy/calculate_accuracy.py --help`.
 
 
 ### Meta-Evaluation of Commonsense Reasoning Metrics
@@ -93,7 +93,7 @@ python meta-evaluation/evaluate.py \
     --human data/ptnmt/human.label \
     --method anova
 ```
-More information about these parameters can be acquired by running `meta-evaluation/evaluate.py --help`.
+More information about these parameters can be acquired by running `python meta-evaluation/evaluate.py --help`.
 
 ## Citation
 If you find this repo useful, please cite our paper:
