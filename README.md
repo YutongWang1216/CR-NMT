@@ -1,8 +1,10 @@
 # Revisiting Commonsense Reasoning in Machine Translation: Training, Evaluation and Challenge
 
 ![Static Badge](https://img.shields.io/badge/Python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-blue)
+[![Static Badge](https://img.shields.io/badge/ACL%202023-long%20866-da3732?logoColor=red)](https://aclanthology.org/2023.acl-long.866/)
 
-Code and data release for our paper published in ACL 2023
+
+Code and data release for our [paper](https://aclanthology.org/2023.acl-long.866/) published in ACL 2023
 
 <div align="center">
     <img src="image/Poster_ACL23_Revisiting Commonsense Reasoning.png" width="80%" title="Poster of the article"></img>
@@ -96,7 +98,7 @@ python meta-evaluation/evaluate.py \
 More information about these parameters can be acquired by running `python meta-evaluation/evaluate.py --help`.
 
 ## Citation
-If you find this repo useful, please cite our paper:
+If you find this repo useful, please cite our [paper](https://aclanthology.org/2023.acl-long.866/):
 ```
 @inproceedings{liu-etal-2023-revisiting-commonsense,
     title = "Revisiting Commonsense Reasoning in Machine Translation: Training, Evaluation and Challenge",
