@@ -7,7 +7,7 @@
 Code and data release for our [paper](https://aclanthology.org/2023.acl-long.866/) published in ACL 2023
 
 <div align="center">
-    <img src="image/Poster_ACL23_Revisiting Commonsense Reasoning.png" width="80%" title="Poster of the article"></img>
+    <img src="image/Poster_ACL23_Revisiting Commonsense Reasoning_new.png" width="80%" title="Poster of the article"></img>
     <p class="image-caption">Poster of Our Article</p>
 </div>
 
