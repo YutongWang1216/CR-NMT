@@ -42,6 +42,8 @@ pip install -r requirements.txt
 ## Examples
 
 ### Entity-Aware BERTScore
+Entity-aware BERTScore is a variant of [BERTScore](https://github.com/Tiiiger/bert_score).
+
 To calculate entity-aware BERTScore between candidates and right/contrastive references, run the following script 
 (taking the candidates of Pt-Nmt as an example, model files will be downloaded automatically during initial running):
 ```bash
